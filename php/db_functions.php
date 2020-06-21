@@ -35,15 +35,18 @@ function mm_getTaxonomyChildren($parent){
 	return $output;
 }
 
-function mm_sumMeta($taxIDs, $meta_key){
+function mm_sumMeta($posttype, $taxIDs, $meta_key){
 	global $wpdb;
 	$taxString='';
-	if($taxIDs!=null){
-		$taxString = ' AND tr.term_taxonomy_id IN (';
-		$taxString .= implode(', ', $taxIDs);
-		$taxString .= ')';
+	$postString='';
+	if($posttype!=''){
+		$postString= " AND p.post_type LIKE '$posttype'";
 	}
-	$query="SELECT tr.term_taxonomy_id, pm.post_id, pm.meta_key, pm.meta_value FROM {$wpdb->prefix}postmeta pm JOIN {$wpdb->prefix}term_relationships tr ON pm.post_id=tr.object_id WHERE pm.meta_key LIKE '$meta_key'$taxString;";
+	if($taxIDs!=null){
+		$taxString = ' AND tr.term_taxonomy_id IN ('.implode(', ', $taxIDs).')';
+	}
+	$query="SELECT tr.term_taxonomy_id, pm.post_id, pm.meta_key, pm.meta_value, p.post_type FROM {$wpdb->prefix}postmeta pm JOIN {$wpdb->prefix}term_relationships tr ON pm.post_id=tr.object_id JOIN {$wpdb->prefix}posts p ON p.ID=pm.post_id WHERE pm.meta_key LIKE '$meta_key'$taxString$postString;";
+	//hit_log($query);
 	$result = $wpdb->get_col($query, 3);
 	return $result;
 }

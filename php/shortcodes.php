@@ -4,22 +4,22 @@ require_once('db_functions.php');
 function meta_math_shortcode($atts){
 	$atts = shortcode_atts(
 		array(
-			'taxonomy' => 'section', // Have an option to set default taxonomy
+			'posttype' => 'time_logged', // Have option to set default
+			'taxonomy' => 'section', // Have option to set default
 			'slug' => '',
 			'meta' => '',
 			'math' => 'sum',
 		), $atts, 'meta-math');
 	if($atts['meta'] == '')
-		return 'META NOT DEFINED';
-	if($atts['taxonomy'] == '')
-		return 'TAXONOMY NOT DEFINED';
-	if($atts['slug'] == ''){
+		return '!META NOT DEFINED!';
+	if($atts['taxonomy'] == ''){
+		$term_taxonomy_ids = null;
+	}elseif($atts['slug'] == ''){
 		$term_taxonomy_ids = mm_getTermTaxIDsByTax($atts['taxonomy']);
 	}else{
 		$term_taxonomy_ids = mm_getTaxonomyChildren(mm_getTermTaxIDBySlug($atts['taxonomy'],$atts['slug']));
-		hit_log($atts['taxonomy'].":".implode(',',$term_taxonomy_ids));
 	}
-	$result = mm_sumMeta($term_taxonomy_ids, $atts['meta']);
+	$result = mm_sumMeta($atts['posttype'], $term_taxonomy_ids, $atts['meta']);
 	return array_sum($result);
 }
 add_shortcode('meta-math', 'meta_math_shortcode');
