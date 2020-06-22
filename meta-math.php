@@ -17,6 +17,6 @@ define ('MM_PLUGIN_LOCATION' , __FILE__);
 // INCLUDES
 require_once(MM_PLUGIN_DIR . 'php/includes.php');
 require_once(MM_PLUGIN_DIR . 'php/activation.php');
-require_once(MM_PLUGIN_DIR . 'php/settings-menu.php');
+require_once(MM_PLUGIN_DIR . 'php/admin.php');
 require_once(MM_PLUGIN_DIR . 'php/shortcodes.php');
 

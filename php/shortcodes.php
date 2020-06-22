@@ -1,11 +1,12 @@
-<?php
+<?php #shortcodes.php
 require_once('db_functions.php');
 
 function meta_math_shortcode($atts){
+	$options = get_option('meta_math_settings');
 	$atts = shortcode_atts(
 		array(
-			'posttype' => 'time_logged', // Have option to set default
-			'taxonomy' => 'section', // Have option to set default
+			'posttype' => $options['meta_math_posttype_field'], // Have option to set default
+			'taxonomy' => $options['meta_math_taxonomy_field'], // Have option to set default
 			'slug' => '',
 			'meta' => '',
 			'math' => 'sum',
