@@ -11,9 +11,9 @@ I wrote this plugin to be able to log the total amount of work I've done on a pr
 2. Activate the plugin in wordpress.
 
 ## Options:
-	- Set these and it will apply to all unspecified meta-math shortcodes.
-		- posttype
-		- taxonomy
+- Set these and it will apply to all unspecified meta-math shortcodes.
+	- posttype
+	- taxonomy
 
 
 ## Shortcodes:
