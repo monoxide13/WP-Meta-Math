@@ -19,7 +19,7 @@ I wrote this plugin to be able to log the total amount of work I've done on a pr
 ## Shortcodes:
 - [meta-math]
 	- args:
-		- posttype [(default selectd in options menu)]
+		- posttype [(default selected in options menu)]
 		- taxonomy [(default selected in options menu)]
 		- slug
 		- meta [required]

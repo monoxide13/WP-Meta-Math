@@ -31,7 +31,7 @@ function post_meta_shortcode($atts){
 			'meta' => '',
 			'postid' => get_the_ID(),
 		), $atts, 'post-meta');
-	return get_post_meta($atts['postid'], $atts['meta'])[0];
+	return get_post_meta($atts['postid'], $atts['meta'], true);
 }
 
 add_shortcode('post-meta', 'post_meta_shortcode');
