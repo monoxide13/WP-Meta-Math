@@ -28,4 +28,8 @@ I wrote this plugin to be able to log the total amount of work I've done on a pr
 		- If posttype, taxonomy and meta are not defined, shortcode will return error message.
 		- meta must always be defined. Shortcode will return error if not.
 		- If no slug is defined, shortcode will return the meta from all posts of that post and/or taxonomy type.
-		- If a slug is defined 
+- [post-meta]
+	- args:
+		- postid [defaults to current current post]
+		- meta [required]
+
