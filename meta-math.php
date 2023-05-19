@@ -1,15 +1,15 @@
 <?php
 /**
  * Plugin Name: Meta Math
- * Plugin URI: http://www.monoxide13.com/meta-math
+ * Plugin URI: https://github.com/monoxide13/WP-Meta-Math
  * Description: Plugin used to do math with meta values based on taxonomy.
- * Version: 0.1
+ * Version: 0.2
  * Author: Monoxide13
  * Author URI: http://www.monoxide13.com
  */
 
 // DEFINES
-define ('MM_VERSION', '0.1');
+define ('MM_VERSION', '0.2');
 define ('MM_PLUGIN_DIR' , plugin_dir_path(__FILE__));
 define ('MM_PLUGIN_URL' , plugin_dir_url(__FILE__));
 define ('MM_PLUGIN_LOCATION' , __FILE__);
